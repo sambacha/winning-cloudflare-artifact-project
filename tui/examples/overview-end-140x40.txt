@@ -1,0 +1,40 @@
+╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║  FAME-XGA │ Lean 4 v4.28.0 │ Agent-Native CI on Cloudflare Edge                                                       ILLUSTRATIVE DATA  ║
+║  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  ║
+║  ◆ LIVE │ 41 ms latency │ 3 agents │ 4/4 ops │ Mathlib@2026-10 │ 707,053 constants │ 12:05:31 │ seed 1                                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║┌───────────────────────────────────────────┐  ┌───────────────────────────────────────────┐  ┌──────────────────────────────────────────┐║
+║│ Monthly CI Cost Comparison            [5] │  │ Per-Run Cost Breakdown                [5] │  │ BUILD & AUDIT PROGRESS               [3] │║
+║│ GHA standard  ██████     $2,376.00/month  │  │ Item                    GHA   Cobuilds    │  │ █ lock progress 100%   █ audited 1,600 t │║
+║│ GHA 4-core    ██████████ $3,816.00/month  │  │ Total per run         $1.32    $0.0984    │  │       100% ┤           ⡏⢉⣉⣉⡭⠭⠭⠟⠛⠛⠋⠉⣿⠉⠉⠉⠉ │║
+║│ Cobuilds (CF) █          $177.08/month    │  │ Savings per run                 $1.222    │  │            │          ⣰⠏⠉              ┊ │║
+║│ Savings $2,198.92/month (92.5%)           │  │ Reduction                        92.5%    │  │            │    ⢀⣠⠤⠴⠒⠚⣹                ┊ │║
+║│ ROI 13.4×  annual $26,387/year            │  │ This run so far: $0.0984                  │  │         0% ┤⣀⣀⣤⣖⣋⣀⣀⣀⣀⣀⡇                ┊ │║
+║│ at 1,800 runs/month                       │  │ GHA equivalent:  $1.32                    │  │            └───────────────────────────┴ │║
+║│                                           │  │                                           │  │             0 s                     60 s │║
+║└───────────────────────────────────────────┘  └───────────────────────────────────────────┘  └──────────────────────────────────────────┘║
+║┌───────────────────────────────────────────┐  ┌───────────────────────────────────────────┐  ┌──────────────────────────────────────────┐║
+║│ R2: LEASE LOCKS                       [2] │  │ ARTIFACTS: Agent Forks                [1] │  │ CLOUDFLARE URIs                      [u] │║
+║│ mathlib-import  ██████████ 100% SUCCEEDED │  │ ✗ agent-alpha a7f3b2c1 CRASHED            │  │ R2  r2://cobuilds-demo/                  │║
+║│ build-core      ██████████ 100% SUCCEEDED │  │ ✓ agent-beta  b9e4d3f2 DONE               │  │ ART …/default/fame-xga.git               │║
+║│ lint-lean       ██████████ 100% SUCCEEDED │  │ ✓ agent-gamma d4e8a1f7 DONE, MERGED       │  │ ART …/default/fame-xga-d4e8a1f7.git      │║
+║│ axiom-audit     ██████████ 100% SUCCEEDED │  │ ✓ merged fork/d4e8a1f7 into trunk         │  │ ART …/default/fame-xga-a7f3b2c1.git      │║
+║└───────────────────────────────────────────┘  └───────────────────────────────────────────┘  └──────────────────────────────────────────┘║
+║┌───────────────────────────────────────────┐  ┌───────────────────────────────────────────┐  ┌──────────────────────────────────────────┐║
+║│ EVENT STREAM                          [e] │  │ R2 BUILD CACHE                        [3] │  │ LEAN CI METRICS                      [4] │║
+║│ 12:05:22 CACHE   agent-gamma: 4 blobs ver │  │ Hit rate 91.7%  dedup 3.2×                │  │ Audited 1,600 of 1,600 theorems          │║
+║│ 12:05:23 REVIEW  agent-gamma: PR fork/d4e │  │ Entry 424.4 MB in 4 blobs                 │  │ ██████████                               │║
+║│ 12:05:27 MERGE   agent-gamma: fork/d4e8a1 │  │ Manifest: published                       │  │ Forbidden axioms: 0 of 5 axioms          │║
+║│ 12:05:27 COST    run complete: $0.098/run │  │ Blobs: downloaded, BLAKE3 verified        │  │ Fastest: SCC+bit 9,400×                  │║
+║└───────────────────────────────────────────┘  └───────────────────────────────────────────┘  └──────────────────────────────────────────┘║
+║┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐║
+║│ SIMULATED ACTIONS R2 uploads/downloads and Artifacts tasks (illustrative, no network)  R2: 22 ops  Artifacts: 14 ops                   │║
+║│ 12:05:22 R2        PUT   agent-gamma v1/lock/ctx/axiom-audit If-Match: axiom-audit.v  ART   a7f3b2c1 ██████████ 100% CRASHED  task/axi │║
+║│ 12:05:22 ARTIFACTS PUSH  agent-gamma fame-xga-d4e8a1f7.git task/axiom-audit-takeover  ART   b9e4d3f2 ██████████ 100% PUSHED   task/sc- │║
+║│ 12:05:23 ARTIFACTS PR    agent-gamma fame-xga-d4e8a1f7 → fame-xga opened, review pen  ART   d4e8a1f7 ██████████ 100% MERGED   task/axi │║
+║│ 12:05:27 ARTIFACTS MERGE agent-gamma fame-xga.git fast-forward from fame-xga-d4e8a1f  R2    ↑ upload █████ 100% ↓ download █████ 100%  │║
+║└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║── CONTROLS ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────║
+║ [SPACE] trigger │ [o]verview │ [1-5 e u] panels │ [c]harts │ [a/r] approve/reject │ [w] git │ [n]otes │ [h]elp │ [j/k] scroll │ [q]uit   ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝

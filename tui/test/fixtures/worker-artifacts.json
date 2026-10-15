@@ -1,0 +1,11 @@
+{
+  "scope": "trusted",
+  "repo": "cobuilds-run-demo-ctx",
+  "remote": "https://acct.artifacts.cloudflare.net/git/default/cobuilds-run-demo-ctx.git",
+  "defaultBranch": "main",
+  "ref": "main",
+  "commits": [
+    { "oid": "4f2a9c1e0b7d3a5f6e8c9d0a1b2c3d4e5f6a7b8c", "message": "cobuild result: 6 ops, 3 jobs", "timestamp": null },
+    { "oid": "0a1b2c3d4e5f60718293a4b5c6d7e8f901234567", "message": "cobuild result: primary", "timestamp": null }
+  ]
+}

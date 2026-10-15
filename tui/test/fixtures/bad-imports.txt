@@ -1,0 +1,4 @@
+import { makeCobuildLock } from "../../ts/src/lock.ts"
+import { Effect } from "effect"
+import x from "../ts/src/cache/restore.ts"
+const m = await import("../../ts/src/cobuild.ts")

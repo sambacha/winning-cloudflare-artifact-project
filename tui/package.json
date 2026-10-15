@@ -1,0 +1,30 @@
+{
+  "name": "fame-xga-cobuilds-tui-demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone terminal demo of Cobuilds (illustrative data; not connected to any service). Panels are Ink-style TSX components rendered by a dependency-free Ink-shaped shim.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node src/main.ts",
+    "autoplay": "node src/main.ts --autoplay",
+    "charts": "node src/main.ts --charts",
+    "charts:autoplay": "node src/main.ts --charts --autoplay",
+    "charts:clean": "node src/main.ts --scenario clean --charts",
+    "snapshot": "node src/main.ts --snapshot 52 --seed 1 --no-color",
+    "notes": "node src/main.ts --notes",
+    "narration": "node src/main.ts --narration",
+    "test": "node --import ./src/ink/register.ts --test test/*.test.ts",
+    "golden:update": "UPDATE_GOLDEN=1 node --import ./src/ink/register.ts --test test/golden.test.ts",
+    "typecheck": "node ../ts/node_modules/typescript/bin/tsc -p tsconfig.json"
+  },
+  "imports": {
+    "#ink/jsx-runtime": "./src/ink/jsx-runtime.ts"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "@types/node": "^22.18.0"
+  }
+}

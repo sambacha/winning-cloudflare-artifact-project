@@ -1,0 +1,291 @@
+== build
+src/bisect/artifacts.ts(93,86): error TS2345: Argument of type '{} | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+src/bisect/artifactsRest.ts(151,33): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/src/fx/Duration"' has no exported member 'DurationInput'.
+src/bisect/artifactsRest.ts(220,74): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/src/fx/Duration"' has no exported member 'DurationInput'.
+src/bisect/drive.ts(128,36): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/src/fx/Duration"' has no exported member 'DurationInput'.
+src/bisect/drive.ts(152,74): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/src/fx/Duration"' has no exported member 'DurationInput'.
+src/buildCache/cache.ts(103,3): error TS2375: Type 'Effect<None<any> | Some<any>, unknown, unknown>' is not assignable to type 'Effect<Option<{ readonly version: 1; readonly key: string; readonly inputSha256: string; readonly abi: string; readonly platform: string; readonly arch: string; readonly toolVersion: string; readonly createdAt: number; readonly tarballSha256: string; readonly tarballBytes: number; readonly outputs: number; readonly ...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'BuildCacheError'.
+src/cache/manifest.ts(84,3): error TS2322: Type 'Result<unknown, string>' is not assignable to type 'Result<{ readonly format: "rush-cache-manifest"; readonly version: 1; readonly lookup: string; readonly buildMs: number; readonly createdAt: number; readonly files: readonly { readonly path: string; readonly blob: string; readonly size: number; readonly encoding: "identity"; }[]; }, string>'.
+  Type 'Success<unknown>' is not assignable to type 'Result<{ readonly format: "rush-cache-manifest"; readonly version: 1; readonly lookup: string; readonly buildMs: number; readonly createdAt: number; readonly files: readonly { readonly path: string; readonly blob: string; readonly size: number; readonly encoding: "identity"; }[]; }, string>'.
+    Type 'Success<unknown>' is not assignable to type 'Success<{ readonly format: "rush-cache-manifest"; readonly version: 1; readonly lookup: string; readonly buildMs: number; readonly createdAt: number; readonly files: readonly { readonly path: string; readonly blob: string; readonly size: number; readonly encoding: "identity"; }[]; }>'.
+      Type 'unknown' is not assignable to type '{ readonly format: "rush-cache-manifest"; readonly version: 1; readonly lookup: string; readonly buildMs: number; readonly createdAt: number; readonly files: readonly { readonly path: string; readonly blob: string; readonly size: number; readonly encoding: "identity"; }[]; }'.
+src/cache/restore.ts(90,43): error TS2345: Argument of type 'Uint8Array<ArrayBufferLike>[]' is not assignable to parameter of type 'Chunk<any>'.
+  Type 'Uint8Array<ArrayBufferLike>[]' is missing the following properties from type 'Chunk<any>': right, left, backing, depth, and 6 more.
+src/cache/restore.ts(162,19): error TS7006: Parameter 'm' implicitly has an 'any' type.
+src/cli/main.ts(257,36): error TS4111: Property 'flushSalt' comes from an index signature, so it must be accessed with ['flushSalt'].
+src/cli/main.ts(257,66): error TS4111: Property 'toolchain' comes from an index signature, so it must be accessed with ['toolchain'].
+src/cli/main.ts(307,28): error TS4111: Property 'operations' comes from an index signature, so it must be accessed with ['operations'].
+src/cli/main.ts(307,44): error TS7006: Parameter 'o' implicitly has an 'any' type.
+src/cli/main.ts(315,27): error TS4111: Property 'operations' comes from an index signature, so it must be accessed with ['operations'].
+src/cli/main.ts(315,43): error TS7006: Parameter 'o' implicitly has an 'any' type.
+src/cli/main.ts(323,32): error TS7006: Parameter 'o' implicitly has an 'any' type.
+src/cli/main.ts(430,64): error TS4111: Property 'operations' comes from an index signature, so it must be accessed with ['operations'].
+src/cli/workspace.ts(71,20): error TS18046: 'plan' is of type 'unknown'.
+src/cli/workspace.ts(85,3): error TS2322: Type 'unknown' is not assignable to type '{ [x: string]: any; }'.
+src/cli/workspace.ts(90,8): error TS4111: Property 'operations' comes from an index signature, so it must be accessed with ['operations'].
+src/cli/workspace.ts(90,24): error TS7006: Parameter 'op' implicitly has an 'any' type.
+src/cli/workspace.ts(168,106): error TS4111: Property 'command' comes from an index signature, so it must be accessed with ['command'].
+src/cli/workspace.ts(170,26): error TS4111: Property 'inputs' comes from an index signature, so it must be accessed with ['inputs'].
+src/cli/workspace.ts(173,82): error TS4111: Property 'name' comes from an index signature, so it must be accessed with ['name'].
+src/cli/workspace.ts(203,27): error TS4111: Property 'operations' comes from an index signature, so it must be accessed with ['operations'].
+src/cli/workspace.ts(208,47): error TS4111: Property 'operations' comes from an index signature, so it must be accessed with ['operations'].
+src/cli/workspace.ts(212,10): error TS4111: Property 'operations' comes from an index signature, so it must be accessed with ['operations'].
+src/cli/workspace.ts(212,30): error TS7006: Parameter 'op' implicitly has an 'any' type.
+src/cli/workspace.ts(212,34): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/cli/workspace.ts(318,20): error TS7006: Parameter 'resume' implicitly has an 'any' type.
+src/cli/workspace.ts(374,24): error TS4111: Property 'outputs' comes from an index signature, so it must be accessed with ['outputs'].
+src/cli/workspace.ts(493,35): error TS4111: Property 'operations' comes from an index signature, so it must be accessed with ['operations'].
+src/cli/workspace.ts(493,51): error TS7006: Parameter 'o' implicitly has an 'any' type.
+src/cli/workspace.ts(505,25): error TS18047: 'op' is possibly 'null'.
+src/cli/workspace.ts(505,28): error TS2339: Property 'timeoutMs' does not exist on type '{}'.
+src/cli/workspace.ts(505,70): error TS18047: 'op' is possibly 'null'.
+src/cli/workspace.ts(505,73): error TS2339: Property 'timeoutMs' does not exist on type '{}'.
+src/cli/workspace.ts(508,11): error TS18047: 'op' is possibly 'null'.
+src/cli/workspace.ts(508,14): error TS2339: Property 'command' does not exist on type '{}'.
+src/cli/workspace.ts(509,32): error TS18047: 'op' is possibly 'null'.
+src/cli/workspace.ts(509,35): error TS2339: Property 'name' does not exist on type '{}'.
+src/cli/workspace.ts(511,80): error TS18047: 'op' is possibly 'null'.
+src/cli/workspace.ts(511,83): error TS2339: Property 'name' does not exist on type '{}'.
+src/cli/workspace.ts(517,77): error TS18047: 'op' is possibly 'null'.
+src/cli/workspace.ts(517,80): error TS2339: Property 'name' does not exist on type '{}'.
+src/cli/workspace.ts(520,77): error TS18047: 'op' is possibly 'null'.
+src/cli/workspace.ts(520,80): error TS2339: Property 'name' does not exist on type '{}'.
+src/cli/workspace.ts(523,50): error TS2345: Argument of type '{} | null' is not assignable to parameter of type '{ [x: string]: any; }'.
+  Type 'null' is not assignable to type '{ [x: string]: any; }'.
+src/cli/workspace.ts(527,62): error TS2531: Object is possibly 'null'.
+src/cli/workspace.ts(527,82): error TS2339: Property 'outputs' does not exist on type '{}'.
+src/cobuild.ts(84,3): error TS2375: Type 'Effect<never, unknown, unknown>' is not assignable to type 'Effect<never, never, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'never'.
+src/fx/Brand.ts(17,25): error TS2307: Cannot find module 'effect/Either' or its corresponding type declarations.
+src/fx/Brand.ts(26,40): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Brand".Brand' has no exported member 'BrandErrors'.
+src/fx/Brand.ts(27,23): error TS7006: Parameter 'issue' implicitly has an 'any' type.
+src/fx/Brand.ts(37,114): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Brand".Brand' has no exported member 'Constructor'.
+src/fx/Brand.ts(38,25): error TS2339: Property 'refined' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Brand", { with: { "resolution-mode": "import" } })'.
+src/fx/Brand.ts(38,37): error TS7006: Parameter 'unbranded' implicitly has an 'any' type.
+src/fx/Brand.ts(40,61): error TS2339: Property 'error' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Brand", { with: { "resolution-mode": "import" } })'.
+src/fx/Brand.ts(48,8): error TS2339: Property 'RefinedConstructorsTypeId' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Brand", { with: { "resolution-mode": "import" } })'.
+src/fx/Brand.ts(48,38): error TS2339: Property 'RefinedConstructorsTypeId' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Brand", { with: { "resolution-mode": "import" } })'.
+src/fx/Brand.ts(48,76): error TS2339: Property 'RefinedConstructorsTypeId' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Brand", { with: { "resolution-mode": "import" } })'.
+src/fx/Cache.ts(37,8): error TS2339: Property 'get' does not exist on type 'Cache<Key, Value, Err>'.
+src/fx/Cache.ts(47,8): error TS2339: Property 'contains' does not exist on type 'Cache<Key, Value, Err>'.
+src/fx/Cache.ts(55,100): error TS2339: Property 'size' does not exist on type 'Cache<Key, Value, Err>'.
+src/fx/Cache.ts(65,8): error TS2339: Property 'invalidate' does not exist on type 'Cache<Key, Value, Err>'.
+src/fx/Cache.ts(74,8): error TS2339: Property 'invalidateAll' does not exist on type 'Cache<Key, Value, Err>'.
+src/fx/Cache.ts(85,8): error TS2339: Property 'refresh' does not exist on type 'Cache<Key, Value, Err>'.
+src/fx/Cause.ts(16,31): error TS2307: Cannot find module 'effect/FiberId' or its corresponding type declarations.
+src/fx/Cause.ts(21,62): error TS2339: Property 'isFailure' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Cause", { with: { "resolution-mode": "import" } })'.
+src/fx/Cause.ts(24,61): error TS2551: Property 'isDie' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Cause", { with: { "resolution-mode": "import" } })'. Did you mean 'die'?
+src/fx/Cause.ts(27,67): error TS2551: Property 'isInterrupted' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Cause", { with: { "resolution-mode": "import" } })'. Did you mean 'interrupt'?
+src/fx/Cause.ts(30,71): error TS2551: Property 'isInterruptedOnly' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Cause", { with: { "resolution-mode": "import" } })'. Did you mean 'hasInterruptsOnly'?
+src/fx/Cause.ts(46,30): error TS2339: Property 'failures' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Cause", { with: { "resolution-mode": "import" } })'.
+src/fx/Cause.ts(46,52): error TS7006: Parameter 'error' implicitly has an 'any' type.
+src/fx/Cause.ts(47,30): error TS2339: Property 'defects' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Cause", { with: { "resolution-mode": "import" } })'.
+src/fx/Cause.ts(47,51): error TS7006: Parameter 'defect' implicitly has an 'any' type.
+src/fx/Duration.ts(11,15): error TS2305: Module '"effect/Duration"' has no exported member 'DurationInput'.
+src/fx/Effect.ts(20,25): error TS2305: Module '"effect/Duration"' has no exported member 'DurationInput'.
+src/fx/Effect.ts(34,28): error TS2339: Property 'fork' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Effect", { with: { "resolution-mode": "import" } })'.
+src/fx/Effect.ts(41,29): error TS2339: Property 'forkDaemon' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Effect", { with: { "resolution-mode": "import" } })'.
+src/fx/Effect.ts(48,24): error TS2339: Property 'catchAll' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Effect", { with: { "resolution-mode": "import" } })'.
+src/fx/Effect.ts(56,29): error TS2551: Property 'catchAllCause' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Effect", { with: { "resolution-mode": "import" } })'. Did you mean 'catchCause'?
+src/fx/Effect.ts(59,30): error TS2551: Property 'catchAllDefect' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Effect", { with: { "resolution-mode": "import" } })'. Did you mean 'catchDefect'?
+src/fx/Effect.ts(65,27): error TS2551: Property 'async' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Effect", { with: { "resolution-mode": "import" } })'. Did you mean 'sync'?
+src/fx/Effect.ts(77,3): error TS2375: Type 'Effect<Result<unknown, unknown>, never, R>' is not assignable to type 'Effect<Result<A, Err>, never, R>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'Result<unknown, unknown>' is not assignable to type 'Result<A, Err>'.
+    Type 'Success<unknown>' is not assignable to type 'Result<A, Err>'.
+      Type 'Success<unknown>' is not assignable to type 'Success<A>'.
+        Type 'unknown' is not assignable to type 'A'.
+          'A' could be instantiated with an arbitrary type which could be unrelated to 'unknown'.
+src/fx/Effect.ts(77,11): error TS2339: Property 'either' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Effect", { with: { "resolution-mode": "import" } })'.
+src/fx/Effect.ts(91,40): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Cause"' has no exported member 'NoSuchElementException'.
+src/fx/Effect.ts(102,66): error TS2339: Property 'NoSuchElementException' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Cause", { with: { "resolution-mode": "import" } })'.
+src/fx/Effect.ts(113,27): error TS2314: Generic type 'Metric<Input, State>' requires 2 type argument(s).
+src/fx/Effect.ts(115,7): error TS2339: Property 'trackSuccess' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Metric", { with: { "resolution-mode": "import" } })'.
+src/fx/Effect.ts(128,23): error TS2314: Generic type 'Metric<Input, State>' requires 2 type argument(s).
+src/fx/Effect.ts(130,7): error TS2339: Property 'trackDuration' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Metric", { with: { "resolution-mode": "import" } })'.
+src/fx/Effect.ts(158,9): error TS2551: Property 'timeoutTo' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Effect", { with: { "resolution-mode": "import" } })'. Did you mean 'timeout'?
+src/fx/Effect.ts(160,21): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/fx/Metric.ts(25,15): error TS2305: Module '"effect/Duration"' has no exported member 'DurationInput'.
+src/fx/Metric.ts(27,35): error TS2307: Cannot find module 'effect/MetricBoundaries' or its corresponding type declarations.
+src/fx/Metric.ts(28,30): error TS2307: Cannot find module 'effect/MetricLabel' or its corresponding type declarations.
+src/fx/Metric.ts(47,72): error TS2554: Expected 2 arguments, but got 3.
+src/fx/Metric.ts(58,5): error TS2339: Property 'timerWithBoundaries' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Metric", { with: { "resolution-mode": "import" } })'.
+src/fx/Metric.ts(79,5): error TS2554: Expected 2 arguments, but got 1.
+src/fx/Metric.ts(98,78): error TS7006: Parameter 'b' implicitly has an 'any' type.
+src/fx/Metric.ts(108,25): error TS2314: Generic type 'Metric<Input, State>' requires 2 type argument(s).
+src/fx/Metric.ts(108,51): error TS2314: Generic type 'Metric<Input, State>' requires 2 type argument(s).
+src/fx/Metric.ts(109,7): error TS2339: Property 'taggedWithLabels' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Metric", { with: { "resolution-mode": "import" } })'.
+src/fx/Result.ts(18,25): error TS2307: Cannot find module 'effect/Either' or its corresponding type declarations.
+src/fx/runtime.ts(35,25): error TS2339: Property 'failureOption' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/src/fx/Cause", { with: { "resolution-mode": "import" } })'.
+src/fx/runtime.ts(59,23): error TS7006: Parameter 'resume' implicitly has an 'any' type.
+src/fx/runtime.ts(107,20): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Fiber"' has no exported member 'RuntimeFiber'.
+src/fx/runtime.ts(119,22): error TS7006: Parameter 'exit' implicitly has an 'any' type.
+src/fx/Schedule.ts(58,11): error TS2339: Property 'intersect' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schedule", { with: { "resolution-mode": "import" } })'.
+src/fx/Schedule.ts(58,23): error TS2339: Property 'intersect' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schedule", { with: { "resolution-mode": "import" } })'.
+src/fx/Schedule.ts(58,60): error TS2339: Property 'count' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schedule", { with: { "resolution-mode": "import" } })'.
+src/fx/Schedule.ts(58,69): error TS2488: Type 'Metadata<unknown, In>' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/fx/Schedule.ts(69,85): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Duration"' has no exported member 'DurationInput'.
+src/fx/Schedule.ts(72,9): error TS2339: Property 'modifyDelayEffect' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schedule", { with: { "resolution-mode": "import" } })'.
+src/fx/Schedule.ts(72,45): error TS7031: Binding element 'output' implicitly has an 'any' type.
+src/fx/Schedule.ts(72,53): error TS7031: Binding element 'input' implicitly has an 'any' type.
+src/fx/Schedule.ts(72,60): error TS7031: Binding element 'n' implicitly has an 'any' type.
+src/fx/Schedule.ts(72,64): error TS7006: Parameter 'duration' implicitly has an 'any' type.
+src/fx/Schedule.ts(73,8): error TS2488: Type 'Metadata<unknown, In>' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/fx/Schedule.ts(101,9): error TS2339: Property 'whileOutput' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schedule", { with: { "resolution-mode": "import" } })'.
+src/fx/Schedule.ts(101,39): error TS7031: Binding element 'output' implicitly has an 'any' type.
+src/fx/Schedule.ts(101,47): error TS7031: Binding element 'input' implicitly has an 'any' type.
+src/fx/Schedule.ts(101,54): error TS7031: Binding element 'n' implicitly has an 'any' type.
+src/fx/Schedule.ts(102,8): error TS2488: Type 'Metadata<unknown, In>' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/fx/Schedule.ts(115,68): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Duration"' has no exported member 'DurationInput'.
+src/fx/Schedule.ts(117,65): error TS2339: Property 'intersect' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schedule", { with: { "resolution-mode": "import" } })'.
+src/fx/Schedule.ts(117,107): error TS2488: Type 'Metadata<unknown, unknown>' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/fx/Schedule.ts(118,44): error TS2322: Type 'Schedule<Out, In, R, never> | Schedule<any, unknown, unknown, unknown>' is not assignable to type 'Schedule<Out, In, R, never>'.
+  Type 'Schedule<any, unknown, unknown, unknown>' is not assignable to type 'Schedule<Out, In, R, never>'.
+    Type 'unknown' is not assignable to type 'R'.
+      'R' could be instantiated with an arbitrary type which could be unrelated to 'unknown'.
+src/fx/Schedule.ts(118,54): error TS2322: Type 'Schedule<any, In, unknown, unknown>' is not assignable to type 'Schedule<Out, In, R, never>'.
+  Type 'unknown' is not assignable to type 'R'.
+    'R' could be instantiated with an arbitrary type which could be unrelated to 'unknown'.
+src/fx/Schedule.ts(129,74): error TS2339: Property 'intersect' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schedule", { with: { "resolution-mode": "import" } })'.
+src/fx/Schedule.ts(140,74): error TS2339: Property 'union' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schedule", { with: { "resolution-mode": "import" } })'.
+src/fx/Schema.ts(20,30): error TS2307: Cannot find module 'effect/ParseResult' or its corresponding type declarations.
+src/fx/Schema.ts(37,18): error TS2314: Generic type 'Schema<T>' requires 1 type argument(s).
+src/fx/Schema.ts(39,25): error TS2551: Property 'decodeUnknownEither' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema", { with: { "resolution-mode": "import" } })'. Did you mean 'decodeUnknownExit'?
+src/fx/Schema.ts(53,38): error TS2551: Property 'decodeUnknown' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema", { with: { "resolution-mode": "import" } })'. Did you mean 'decodeUnknownExit'?
+src/fx/Schema.ts(61,45): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema".Schema' has no exported member 'Any'.
+src/fx/Schema.ts(71,23): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema".Schema' has no exported member 'Any'.
+src/fx/Schema.ts(83,23): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema".Schema' has no exported member 'Any'.
+src/fx/Schema.ts(84,14): error TS2314: Generic type 'Schema<T>' requires 1 type argument(s).
+src/fx/Schema.ts(84,52): error TS2551: Property 'filter' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema", { with: { "resolution-mode": "import" } })'. Did you mean 'File'?
+src/fx/Schema.ts(112,68): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema".Schema' has no exported member 'All'.
+src/fx/Schema.ts(113,11): error TS2556: A spread argument must either have a tuple type or be passed to a rest parameter.
+src/fx/Schema.ts(122,49): error TS2314: Generic type 'Schema<T>' requires 1 type argument(s).
+src/fx/Schema.ts(122,73): error TS2339: Property 'parseJson' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema", { with: { "resolution-mode": "import" } })'.
+src/fx/Schema.ts(133,48): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema".Schema' has no exported member 'All'.
+src/fx/Schema.ts(134,19): error TS2551: Property 'optionalWith' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema", { with: { "resolution-mode": "import" } })'. Did you mean 'optional'?
+src/fx/Schema.ts(146,43): error TS2314: Generic type 'Schema<T>' requires 1 type argument(s).
+src/fx/Schema.ts(147,7): error TS2551: Property 'optionalWith' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema", { with: { "resolution-mode": "import" } })'. Did you mean 'optional'?
+src/fx/Schema.ts(162,48): error TS2314: Generic type 'Schema<T>' requires 1 type argument(s).
+src/fx/Schema.ts(164,9): error TS2339: Property 'transformOrFail' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema", { with: { "resolution-mode": "import" } })'.
+src/fx/Schema.ts(164,34): error TS2339: Property 'RedactedFromSelf' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema", { with: { "resolution-mode": "import" } })'.
+src/fx/Schema.ts(164,53): error TS2339: Property 'typeSchema' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Schema", { with: { "resolution-mode": "import" } })'.
+src/fx/Schema.ts(166,18): error TS7006: Parameter 'raw' implicitly has an 'any' type.
+src/fx/Schema.ts(167,18): error TS7006: Parameter 'secret' implicitly has an 'any' type.
+src/fx/Schema.ts(167,26): error TS7006: Parameter '_options' implicitly has an 'any' type.
+src/fx/Schema.ts(167,36): error TS7006: Parameter 'ast' implicitly has an 'any' type.
+src/fx/testing.ts(13,10): error TS2305: Module '"effect"' has no exported member 'TestClock'.
+src/fx/testing.ts(13,36): error TS2305: Module '"effect"' has no exported member 'TestContext'.
+src/lock.ts(281,23): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(k: readonly [never, ...never[]], f: (e: never) => Effect<unknown, unknown, unknown>, orElse?: ((e: unknown) => Effect<unassigned, never, never>) | undefined): <A, R>(self: Effect<A, unknown, R>) => Effect<...>', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type 'readonly [never, ...never[]]'.
+  Overload 2 of 2, '(self: Effect<unknown, unknown, unknown>, k: readonly [never, ...never[]], f: (e: never) => Effect<unknown, unknown, unknown>, orElse?: ((e: unknown) => Effect<unassigned, never, never>) | undefined): Effect<...>', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type 'Effect<unknown, unknown, unknown>'.
+src/lock.ts(307,7): error TS2345: Argument of type '<E, R>(self: Effect<Option<unknown>, E, R>) => Effect<Option<any>, E, R>' is not assignable to parameter of type '(_: Effect<unknown, unknown, unknown>) => Effect<Option<any>, unknown, unknown>'.
+  Types of parameters 'self' and '_' are incompatible.
+    Type 'Effect<unknown, unknown, unknown>' is not assignable to type 'Effect<Option<unknown>, unknown, unknown>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Type 'unknown' is not assignable to type 'Option<unknown>'.
+src/lock.ts(307,50): error TS18046: 'cur' is of type 'unknown'.
+src/lock.ts(307,88): error TS18046: 'cur' is of type 'unknown'.
+src/lock.ts(324,21): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/lock.ts(327,11): error TS2375: Type 'Effect<unknown, any, never>' is not assignable to type 'Effect<string, StoreError, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'string'.
+src/lock.ts(330,11): error TS2345: Argument of type '<E, R>(self: Effect<Option<unknown>, E, R>) => Effect<string, StoreError | E, R>' is not assignable to parameter of type '(_: Effect<unknown, unknown, unknown>) => Effect<string, unknown, unknown>'.
+  Types of parameters 'self' and '_' are incompatible.
+    Type 'Effect<unknown, unknown, unknown>' is not assignable to type 'Effect<Option<unknown>, unknown, unknown>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Type 'unknown' is not assignable to type 'Option<unknown>'.
+src/lock.ts(334,24): error TS18046: 'cur' is of type 'unknown'.
+src/lock.ts(335,36): error TS18046: 'cur' is of type 'unknown'.
+src/lock.ts(336,21): error TS18046: 'cur' is of type 'unknown'.
+src/lock.ts(348,21): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/lock.ts(350,11): error TS2375: Type 'Effect<unknown, any, never>' is not assignable to type 'Effect<string, StoreError, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'string'.
+src/lock.ts(353,11): error TS2345: Argument of type '<E, R>(self: Effect<Option<unknown>, E, R>) => Effect<string, StoreError | E, R>' is not assignable to parameter of type '(_: Effect<unknown, unknown, unknown>) => Effect<string, unknown, unknown>'.
+  Types of parameters 'self' and '_' are incompatible.
+    Type 'Effect<unknown, unknown, unknown>' is not assignable to type 'Effect<Option<unknown>, unknown, unknown>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Type 'unknown' is not assignable to type 'Option<unknown>'.
+src/lock.ts(357,24): error TS18046: 'cur' is of type 'unknown'.
+src/lock.ts(358,36): error TS18046: 'cur' is of type 'unknown'.
+src/lock.ts(378,5): error TS2375: Type 'Effect<{ readonly state: "obtained"; readonly lock: HeldLock; } | { readonly state: "pending"; readonly owner: string | null; readonly expiresAt: number | null; } | { readonly state: "completed"; readonly buildCacheKey: string; } | { ...; } | { ...; } | { ...; } | undefined, unknown, unknown>' is not assignable to type 'Effect<LockState, StoreFailure, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ readonly state: "obtained"; readonly lock: HeldLock; } | { readonly state: "pending"; readonly owner: string | null; readonly expiresAt: number | null; } | { readonly state: "completed"; readonly buildCacheKey: string; } | { ...; } | { ...; } | { ...; } | undefined' is not assignable to type 'LockState'.
+    Type 'undefined' is not assignable to type 'LockState'.
+src/lock.ts(378,16): error TS7030: Not all code paths return a value.
+src/lock.ts(396,25): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Option<unknown>'.
+src/lock.ts(397,44): error TS18046: 'current' is of type 'unknown'.
+src/lock.ts(491,16): error TS7030: Not all code paths return a value.
+src/lock.ts(493,25): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Option<unknown>'.
+src/lock.ts(494,17): error TS18046: 'current' is of type 'unknown'.
+src/lock.ts(507,93): error TS2322: Type '(cacheKey: CacheKey) => Effect.Effect<{ readonly state: "obtained"; readonly lock: HeldLock; } | { readonly state: "pending"; readonly owner: string | null; readonly expiresAt: number | null; } | { ...; } | { ...; } | { ...; } | undefined, unknown, unknown>' is not assignable to type '(cacheKey: CacheKey) => Effect<LockState | { readonly state: "free"; }, StoreFailure, never>'.
+  Type 'Effect<{ readonly state: "obtained"; readonly lock: HeldLock; } | { readonly state: "pending"; readonly owner: string | null; readonly expiresAt: number | null; } | { readonly state: "free"; readonly buildCacheKey?: never; readonly failedAt?: never; readonly logKey?: never; } | { ...; } | { ...; } | undefined, unkno...' is not assignable to type 'Effect<LockState | { readonly state: "free"; }, StoreFailure, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Type '{ readonly state: "obtained"; readonly lock: HeldLock; } | { readonly state: "pending"; readonly owner: string | null; readonly expiresAt: number | null; } | { readonly state: "free"; readonly buildCacheKey?: never; readonly failedAt?: never; readonly logKey?: never; } | { ...; } | { ...; } | undefined' is not assignable to type 'LockState | { readonly state: "free"; }'.
+      Type 'undefined' is not assignable to type 'LockState | { readonly state: "free"; }'.
+src/memoryStore.ts(95,23): error TS2339: Property 'fromNullable' does not exist on type 'typeof import("/Users/janitor/Downloads/cf_1/ts/node_modules/effect/dist/Option", { with: { "resolution-mode": "import" } })'.
+src/metrics.ts(202,41): error TS2345: Argument of type 'unknown' is not assignable to parameter of type '{ readonly count: number; readonly min: number; readonly max: number; readonly sum: number; readonly buckets: readonly (readonly [number, number])[]; }'.
+src/metrics.ts(207,34): error TS2345: Argument of type 'unknown' is not assignable to parameter of type '{ readonly count: number; readonly min: number; readonly max: number; readonly sum: number; readonly buckets: readonly (readonly [number, number])[]; }'.
+src/nodeModules/cache.ts(59,34): error TS2554: Expected 1 arguments, but got 2.
+src/nodeModules/cache.ts(122,3): error TS2375: Type 'Effect<None<any> | Some<any>, unknown, unknown>' is not assignable to type 'Effect<Option<{ readonly version: 1; readonly key: string; readonly lockfileSha256: string; readonly abi: string; readonly platform: string; readonly arch: string; readonly nodeVersion: string; ... 5 more ...; readonly coldInstallMs: number; }>, NodeModulesCacheError, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'NodeModulesCacheError'.
+src/nodeModules/ensure.ts(143,3): error TS2375: Type 'Effect<{ key: string; outcome: "hit"; durationMs: number; publish: null; missReason: null; manifest: { readonly version: 1; readonly key: string; readonly lockfileSha256: string; readonly abi: string; ... 8 more ...; readonly coldInstallMs: number; }; } | { ...; }, unknown, unknown>' is not assignable to type 'Effect<EnsureResult, CommandFailed | NoLockfile, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'CommandFailed | NoLockfile'.
+src/nodeModules/ensure.ts(153,33): error TS2488: Type 'never' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/nodeModules/ensure.ts(170,14): error TS2488: Type 'never' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/nodeModules/ensure.ts(192,15): error TS2488: Type 'never' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/nodeModules/ensure.ts(201,18): error TS2488: Type 'never' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/nodeModules/ensure.ts(212,12): error TS2488: Type 'never' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/nodeModules/ensure.ts(216,7): error TS2322: Type '"miss"' is not assignable to type '"hit"'.
+src/nodeModules/localWorkspace.ts(21,47): error TS7006: Parameter 'resume' implicitly has an 'any' type.
+src/secrets.ts(33,38): error TS2322: Type 'unknown' is not assignable to type 'Redacted<string> | undefined'.
+src/tui/live.ts(45,60): error TS2554: Expected 1 arguments, but got 3.
+src/tui/live.ts(77,38): error TS2554: Expected 1 arguments, but got 3.
+src/tui/live.ts(119,61): error TS2322: Type '{ readonly id: string; readonly repo: string; readonly good: { [x: string]: any; }; readonly badRef: string; readonly candidates: number; readonly status: { readonly done: boolean; readonly stopReason: "confidence" | null; ... 8 more ...; readonly rates: { ...; }; }; readonly tally: readonly { ...; }[]; }' is not assignable to type '{ id: string; repo: string; good: CommitInfo; badRef: string; candidates: number; status: SessionStatus; tally: readonly CommitTally[]; }'.
+  Types of property 'good' are incompatible.
+    Property 'oid' is missing in type '{ [x: string]: any; }' but required in type 'CommitInfo'.
+src/tui/live.ts(126,18): error TS2314: Generic type 'Schema<T>' requires 1 type argument(s).
+src/tui/live.ts(129,34): error TS2322: Type 'Result<unknown, string>' is not assignable to type 'Result<A, string>'.
+  Type 'Success<unknown>' is not assignable to type 'Result<A, string>'.
+    Type 'Success<unknown>' is not assignable to type 'Success<A>'.
+      Type 'unknown' is not assignable to type 'A'.
+        'A' could be instantiated with an arbitrary type which could be unrelated to 'unknown'.
+src/tui/live.ts(207,60): error TS2314: Generic type 'Schema<T>' requires 1 type argument(s).
+src/tui/live.ts(209,5): error TS2322: Type 'Result<unknown, string>' is not assignable to type 'Result<A, string>'.
+  Type 'Success<unknown>' is not assignable to type 'Result<A, string>'.
+    Type 'Success<unknown>' is not assignable to type 'Success<A>'.
+      Type 'unknown' is not assignable to type 'A'.
+        'A' could be instantiated with an arbitrary type which could be unrelated to 'unknown'.
+src/tui/live.ts(216,30): error TS2345: Argument of type 'Result<unknown, string>' is not assignable to parameter of type 'Result<{ readonly repo: string; readonly remote: string; readonly defaultBranch: string | null; readonly ref: string; readonly commits: readonly { readonly oid: string; readonly message: string | null; readonly timestamp: string | null; }[]; }, string>'.
+  Type 'Success<unknown>' is not assignable to type 'Result<{ readonly repo: string; readonly remote: string; readonly defaultBranch: string | null; readonly ref: string; readonly commits: readonly { readonly oid: string; readonly message: string | null; readonly timestamp: string | null; }[]; }, string>'.
+    Type 'Success<unknown>' is not assignable to type 'Success<{ readonly repo: string; readonly remote: string; readonly defaultBranch: string | null; readonly ref: string; readonly commits: readonly { readonly oid: string; readonly message: string | null; readonly timestamp: string | null; }[]; }>'.
+      Type 'unknown' is not assignable to type '{ readonly repo: string; readonly remote: string; readonly defaultBranch: string | null; readonly ref: string; readonly commits: readonly { readonly oid: string; readonly message: string | null; readonly timestamp: string | null; }[]; }'.
+src/tui/live.ts(224,31): error TS2345: Argument of type 'unknown' is not assignable to parameter of type '{ readonly locks: readonly ({ readonly key: string; readonly cacheKey: string; readonly owner: string; readonly status: "building"; readonly heartbeatAt: number; readonly expiresAt: number; readonly leaseExpired: boolean; } | { ...; })[]; readonly truncated: boolean; }'.
+src/tui/live.ts(231,10): error TS2322: Type 'unknown' is not assignable to type 'NodeModulesView | null'.
+src/tui/live.ts(240,10): error TS2322: Type 'unknown' is not assignable to type '{ id: string; repo: string; good: CommitInfo; badRef: string; candidates: number; status: SessionStatus; tally: readonly CommitTally[]; } | null'.
+src/tui/live.ts(247,21): error TS18046: 'r.success' is of type 'unknown'.
+src/tui/scenario.ts(127,62): error TS2322: Type '"miss"' is not assignable to type '"hit"'.
+src/worker/bisectRoutes.ts(340,9): error TS2375: Type 'Effect<{ decision: "rejected"; principal: string; at: number; note: null; comment: string; } | { decision: "approved"; principal: string; at: number; note: { ref: string; commit: string; text: string; }; comment: string; }, RangeError | ... 2 more ... | SessionStoreError, never>' is not assignable to type 'Effect<{ readonly decision: "approved"; readonly principal: string; readonly at: number; readonly note: { readonly ref: string; readonly commit: string; readonly text: string; } | null; readonly comment: string; }, RangeError | ... 2 more ... | SessionStoreError, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ decision: "rejected"; principal: string; at: number; note: null; comment: string; } | { decision: "approved"; principal: string; at: number; note: { ref: string; commit: string; text: string; }; comment: string; }' is not assignable to type '{ readonly decision: "approved"; readonly principal: string; readonly at: number; readonly note: { readonly ref: string; readonly commit: string; readonly text: string; } | null; readonly comment: string; }'.
+    Type '{ decision: "rejected"; principal: string; at: number; note: null; comment: string; }' is not assignable to type '{ readonly decision: "approved"; readonly principal: string; readonly at: number; readonly note: { readonly ref: string; readonly commit: string; readonly text: string; } | null; readonly comment: string; }'.
+      Types of property 'decision' are incompatible.
+        Type '"rejected"' is not assignable to type '"approved"'.
+src/worker/bisectRoutes.ts(342,45): error TS2322: Type '"rejected"' is not assignable to type '"approved"'.
+src/worker/handler.ts(190,13): error TS18046: 'm' is of type 'unknown'.
+src/worker/handler.ts(195,12): error TS18046: 'm' is of type 'unknown'.
+src/worker/handler.ts(197,17): error TS18046: 'm' is of type 'unknown'.
+src/worker/handler.ts(198,18): error TS18046: 'm' is of type 'unknown'.
+src/worker/handler.ts(199,16): error TS18046: 'm' is of type 'unknown'.
+src/worker/handler.ts(200,46): error TS18046: 'm' is of type 'unknown'.
+src/worker/resultStore.ts(25,40): error TS2554: Expected 1 arguments, but got 2.
+src/worker/resultStore.ts(135,5): error TS2322: Type '(id: SessionId) => Effect.Effect<{ result: any; etag: string; } | null, unknown, unknown>' is not assignable to type '(id: SessionId) => Effect<{ readonly result: { readonly version: 1; readonly sessionId: string; readonly repo: string; readonly goodRef: string; readonly badRef: string; readonly good: { readonly oid: string; readonly message?: string | undefined; }; ... 10 more ...; readonly review: { ...; } | null; }; readonly eta...'.
+  Type 'Effect<{ result: any; etag: string; } | null, unknown, unknown>' is not assignable to type 'Effect<{ readonly result: { readonly version: 1; readonly sessionId: string; readonly repo: string; readonly goodRef: string; readonly badRef: string; readonly good: { readonly oid: string; readonly message?: string | undefined; }; ... 10 more ...; readonly review: { ...; } | null; }; readonly etag: string; } | null...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Type 'unknown' is not assignable to type 'UpstreamError | ResultCorrupt'.
+src/worker/resultStore.ts(137,7): error TS2375: Type 'Effect<any, unknown, unknown>' is not assignable to type 'Effect<{ readonly version: 1; readonly sessionId: string; readonly repo: string; readonly goodRef: string; readonly badRef: string; readonly good: { readonly oid: string; readonly message?: string | undefined; }; ... 10 more ...; readonly review: { ...; } | null; }, UpstreamError | ResultCorrupt, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'UpstreamError | ResultCorrupt'.
+src/worker/resultStore.ts(148,7): error TS2375: Type 'Effect<{ readonly version: 1; readonly sessionId: string; readonly repo: string; readonly goodRef: string; readonly badRef: string; readonly good: { readonly oid: string; readonly message?: string | undefined; }; ... 10 more ...; readonly review: { ...; } | null; } | null, unknown, unknown>' is not assignable to type 'Effect<{ readonly version: 1; readonly sessionId: string; readonly repo: string; readonly goodRef: string; readonly badRef: string; readonly good: { readonly oid: string; readonly message?: string | undefined; }; ... 10 more ...; readonly review: { ...; } | null; } | null, UpstreamError | ... 2 more ... | E, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'UpstreamError | ResultCorrupt | AlreadyReviewed | E'.
+src/workflows/bisectDriver.ts(75,36): error TS2694: Namespace '"/Users/janitor/Downloads/cf_1/ts/src/fx/Duration"' has no exported member 'DurationInput'.
+src/workflows/ciDriver.ts(91,88): error TS2554: Expected 1 arguments, but got 2.
+src/workflows/ciDriver.ts(97,3): error TS2375: Type 'Effect<any, unknown, unknown>' is not assignable to type 'Effect<{ readonly commit: string; readonly status: "green"; readonly at: number; } | null, UpstreamError, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'UpstreamError'.
+src/workflows/ciDriver.ts(122,3): error TS2375: Type 'Effect<{ value: any; etag: string; } | null, unknown, unknown>' is not assignable to type 'Effect<{ readonly value: { readonly commit: string; readonly at: number; }; readonly etag: string; } | null, UpstreamError, never>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type 'unknown' is not assignable to type 'UpstreamError'.
+src/workflows/ciDriver.ts(211,140): error TS2322: Type '"green" | "red"' is not assignable to type '"green"'.
+  Type '"red"' is not assignable to type '"green"'.

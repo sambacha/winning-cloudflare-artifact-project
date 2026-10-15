@@ -1,0 +1,43 @@
+{
+  "name": "rush-cobuild-lock-r2",
+  "version": "0.1.0",
+  "private": true,
+  "description": "R2-backed Rush-style cobuilds (lock, CI cache, CLI, state Worker) and Bayesian bisection over Cloudflare Artifacts (Effect.ts), and an R2-backed node_modules cache, following the verified Lean model in RequestProject/Cobuilds",
+  "type": "module",
+  "scripts": {
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
+    "build": "node node_modules/typescript/bin/tsc -p tsconfig.build.json",
+    "pretest": "node scripts/ensure-exec.mjs",
+    "test": "node node_modules/vitest/vitest.mjs run",
+    "test:bisect": "node node_modules/vitest/vitest.mjs run test/bisect test/worker/bisect.test.ts",
+    "mutation": "bash scripts/mutation-check.sh",
+    "bayesect": "node dist/bisect/bin.js",
+    "cf-types": "npx --yes wrangler@^4.145.0 types",
+    "deploy": "node scripts/deploy.mjs",
+    "test:e2e": "node node_modules/vitest/vitest.mjs run test/cli test/fsBucket.test.ts test/r2Adapters.test.ts",
+    "demo": "bash scripts/demo.sh",
+    "bisect-demo": "node dist/demo/bisectDemoBin.js",
+    "test:bench": "NM_BENCH=1 node node_modules/vitest/vitest.mjs run test/nodeModules/ensure.test.ts",
+    "test:r2-live": "node node_modules/vitest/vitest.mjs run test/r2.live.test.ts",
+    "cobuild": "node dist/cli/bin.js",
+    "nm-cache": "node dist/nodeModules/bin.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1149.0",
+    "effect": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "fast-check": "^4.10.2",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "bin": {
+    "bayesect": "dist/bisect/bin.js",
+    "cobuild": "dist/cli/bin.js",
+    "nm-cache": "dist/nodeModules/bin.js"
+  }
+}

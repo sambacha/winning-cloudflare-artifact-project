@@ -1,0 +1,200 @@
+╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║  ███████╗  █████╗  ███╗   ███╗ ███████╗        ██╗  ██╗  ██████╗   █████╗                                                                ║
+║  ██╔════╝ ██╔══██╗ ████╗ ████║ ██╔════╝        ╚██╗██╔╝ ██╔════╝  ██╔══██╗                                                               ║
+║  █████╗   ███████║ ██╔████╔██║ █████╗   █████╗  ╚███╔╝  ██║  ███╗ ███████║                                                               ║
+║  ██╔══╝   ██╔══██║ ██║╚██╔╝██║ ██╔══╝   ╚════╝  ██╔██╗  ██║   ██║ ██╔══██║                                                               ║
+║  ██║      ██║  ██║ ██║ ╚═╝ ██║ ███████╗        ██╔╝ ██╗ ╚██████╔╝ ██║  ██║                                                               ║
+║  ╚═╝      ╚═╝  ╚═╝ ╚═╝     ╚═╝ ╚══════╝        ╚═╝  ╚═╝  ╚═════╝  ╚═╝  ╚═╝                                                               ║
+║  FAME-XGA │ Lean 4 v4.28.0 │ Agent-Native CI on Cloudflare Edge                                                                          ║
+║  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  ║
+║  ◆ LIVE │ 47ms latency │ 3 agents │ 4/4 ops │ Mathlib@2026-10 │ 707,053 constants │ t+60s 12:05:31 │ ILLUSTRATIVE DATA                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║─── COORDINATION ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────║
+║ ┌─ ARTIFACTS: Agent Forks ────────────────────────────────── [1] ─┐  ┌─ R2: LEASE LOCKS ───────────────────────────────────────── [2] ─┐ ║
+║ │ ◉ agent-alpha                                                   │  │ ╭─ op:mathlib-import ─────────────────────────────────────────╮ │ ║
+║ │ ├─ fork:   a7f3b2c1                                             │  │ │ ██████████████████████████████ 100% SUCCEEDED               │ │ ║
+║ │ │  status: ✗ CRASHED  no heartbeat since 12:04:51               │  │ │ holder: agent-alpha   etag: "alpha-004"                     │ │ ║
+║ │ │  token:  expired                                              │  │ │ expiry: released   published: 35s ago                       │ │ ║
+║ │ │  branch: task/axiom-audit                                     │  │ │ key:    v1/lock/ctx/mathlib-import                          │ │ ║
+║ │ │  commit: "perf: memoized Tarjan SCC"                          │  │ │ via:    If-Match (publish)                                  │ │ ║
+║ │ │  diff:   +847 -203 in 12 files                                │  │ │ result: manifest→blake3:7a3f...                             │ │ ║
+║ │ │  lean:   1,600 theorems audited                               │  │ ╰─────────────────────────────────────────────────────────────╯ │ ║
+║ │ │  axiom:  0 unsafe axioms found                                │  │ ╭─ op:build-core ─────────────────────────────────────────────╮ │ ║
+║ │ │  set:    A (memoized Tarjan)                                  │  │ │ ██████████████████████████████ 100% SUCCEEDED               │ │ ║
+║ │                                                                 │  │ │ holder: agent-beta   etag: "beta-006"                       │ │ ║
+║ │ ◉ agent-beta                                                    │  │ │ expiry: released   published: 12s ago                       │ │ ║
+║ │ ├─ fork:   b9e4d3f2                                             │  │ │ key:    v1/lock/ctx/build-core                              │ │ ║
+║ │ │  status: ✓ DONE  build-core succeeded                         │  │ │ via:    If-Match (publish)                                  │ │ ║
+║ │ │  token:  expired                                              │  │ │ result: manifest→blake3:3c9e...                             │ │ ║
+║ │ │  branch: task/sc-audit                                        │  │ ╰─────────────────────────────────────────────────────────────╯ │ ║
+║ │ │  commit: "feat: shared visited set"                           │  │ ╭─ op:lint-lean ──────────────────────────────────────────────╮ │ ║
+║ │ │  diff:   +311 -58 in 5 files                                  │  │ │ ██████████████████████████████ 100% SUCCEEDED               │ │ ║
+║ │ │  lean:   Set B (shared visited)                               │  │ │ holder: agent-gamma   etag: "gamma-002"                     │ │ ║
+║ │ │  axiom:  pass/fail (SCC bitmask)                              │  │ │ expiry: released   published: 48s ago                       │ │ ║
+║ │                                                                 │  │ │ key:    v1/lock/ctx/lint-lean                               │ │ ║
+║ │ ◉ agent-gamma                                                   │  │ │ via:    If-Match (publish)                                  │ │ ║
+║ │ ├─ fork:   c1d5e4a3                                             │  │ │ result: manifest→blake3:91b0...                             │ │ ║
+║ │ │  status: ✓ DONE → MERGED  fast-forward to trunk               │  │ ╰─────────────────────────────────────────────────────────────╯ │ ║
+║ │ │  token:  expired                                              │  │ ╭─ op:axiom-audit ────────────────────────────────────────────╮ │ ║
+║ │ │  branch: task/lint-lean                                       │  │ │ ██████████████████████████████ 100% SUCCEEDED               │ │ ║
+║ │ │  commit: "chore: fix #print axioms"                           │  │ │ holder: agent-gamma   etag: "gamma-004"                     │ │ ║
+║ │ │  diff:   +23 -1 in 2 files                                    │  │ │ expiry: released   published: 9s ago                        │ │ ║
+║ │ │  lean:   0 warnings, 0 errors                                 │  │ │ key:    v1/lock/ctx/axiom-audit                             │ │ ║
+║ │                                                                 │  │ │ via:    If-Match (takeover)                                 │ │ ║
+║ └─────────────────────────────────────────────────────────────────┘  │ │ prev:   agent-alpha (crashed)                               │ │ ║
+║                                                                      │ │ result: manifest→blake3:a7f3...                             │ │ ║
+║                                                                      │ ╰─────────────────────────────────────────────────────────────╯ │ ║
+║                                                                      └─────────────────────────────────────────────────────────────────┘ ║
+║─── R2 BUILD CACHE ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────║
+║ ┌─ R2 BUILD CACHE ─────────────────────────────────────────────────────────────────────────────────────────────────────────────── [3] ─┐ ║
+║ │ Merkle Lookup Key:                                                                                                                   │ ║
+║ │ v1/trusted/k/blake3:7a3f8b2c1d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2                                              │ ║
+║ │ │  Scope: trusted │ Inputs: 847 files │ Deps: 12 packages │ Salt: FAME-XGA-v1                                                        │ ║
+║ │                                                                                                                                      │ ║
+║ │ │  Blobs (create-only, content-addressed):                                                                                           │ ║
+║ │ │  ├─ ✓ blake3:abc123def456...   284.7 MB  zstd:19  shared:3 repos  ✓ verified                                                       │ ║
+║ │ │  ├─ ✓ blake3:789abcdef012...    91.2 MB  zstd:19  shared:2 repos  ✓ verified                                                       │ ║
+║ │ │  ├─ ✓ blake3:fedcba987654...    45.1 MB  zstd:19  unique  ✓ verified                                                               │ ║
+║ │ │  └─ ✓ blake3:0123456789ab...     3.4 MB  zstd:19  shared:3 repos  ✓ verified                                                       │ ║
+║ │                                                                                                                                      │ ║
+║ │ │  Manifest (commit point):                                                                                                          │ ║
+║ │ │  └─ ✓ v1/trusted/k/blake3:7a3f... {blobs:4, buildMs:4200, tool:lean4.28, mathlib:oct26}                                            │ ║
+║ │                                                                                                                                      │ ║
+║ │ │  Cache Stats:  Hit Rate: 91.7% │ Dedup: 3.2× │ Blobs: 424 MB │ Raw: 1,357 MB                                                       │ ║
+║ │ │  Space Saved:  933 MB (68.8% reduction) │ zstd avg ratio: 3.2:1 │ Chunks: 2,847                                                    │ ║
+║ └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘ ║
+║─── LEAN 4 CI METRICS ── FAME-XGA ────────────────────────────────────────────────────────────────────────────────────────────────────────║
+║ ┌─ Axiom Audit Performance ───────────────────────────────── [4] ─┐  ┌─ Build Pipeline ────────────────────────────────────────────────┐ ║
+║ │ Theorem Count: 1,600 (project)   audited now: 1,600             │  │ Phase Breakdown (N=1,600):                                      │ ║
+║ │ Constants:     707,053 (Mathlib)                                │  │ Phase            Old   Set A   Set B                            │ ║
+║ │                                                                 │  │ ───────────   ──────  ──────  ──────                            │ ║
+║ │ Algorithm Comparison (1,600 thms):                              │  │ Import         13.1%   60.3%   84.8%                            │ ║
+║ │ ┌──────────┬───────────┬──────────┬──────────┐                  │  │ Enum/Filter     0.8%    3.7%    5.2%                            │ ║
+║ │ │ Algorithm│ Per-Thm   │ Total    │ Speedup  │                  │  │ Traversal      86.1%   36.0%   10.0%                            │ ║
+║ │ ├──────────┼───────────┼──────────┼──────────┤                  │  │ Total        169.5 s  32.8 s  21.8 s                            │ ║
+║ │ │ Old      │ 94.0 ms   │ 150.4 s  │ 1.0×     │                  │  │                                                                 │ ║
+║ │ │ Set A    │ 8.56 ms   │ 13.7 s   │ 11.0×    │                  │  │ Set B  ████████████████████░░░░ import                          │ ║
+║ │ │ Set B    │ 1.69 ms   │ 2.7 s    │ 55.6×    │                  │  │        ██░░░░░░░░░░░░░░░░░░░░░░ traversal                       │ ║
+║ │ │ SCC+bit  │ 0.01 ms   │ 16.0 ms  │ 9,400×   │                  │  │                                                                 │ ║
+║ │ └──────────┴───────────┴──────────┴──────────┘                  │  │ Wall Time: 21.8 s (Set B)   CPU: 21.8 s (1 core)                │ ║
+║ │                                                                 │  │ Peak Mem:  ~180 MB   Allocated: ~2.1 GB (GC churn)              │ ║
+║ │ Cache Performance:                                              │  │                                                                 │ ║
+║ │ Cold run:   32.8 s (Set A)                                      │  │ Parallel Scaling (Set A, N=24k):                                │ ║
+║ │ Warm cache: 19.2 s (95% hit rate)                               │  │ cores    time   speedup  Amdahl                                 │ ║
+║ │ Persistent: <1 s + traversal                                    │  │    1    227.7s    1.0×                                          │ ║
+║ │ SCC count: 847 │ Max SCC: 1,203 │ Max depth: 14                 │  │    8     45.2s    5.0×   45.2s                                  │ ║
+║ │ Vertices: 707,053 │ Edges (d=5): ~3.5M │ Cache file: 2.1 MB     │  │   16     32.1s    7.1×   32.1s                                  │ ║
+║ │                                                                 │  │   32     25.6s    8.9×   25.6s                                  │ ║
+║ │ Axiom Results:                                                  │  │    ∞     19.1s  (Amdahl limit)                                  │ ║
+║ │ ● propext           ✓ found (expected)                          │  │                                                                 │ ║
+║ │ ● Quot.sound        ✓ found (expected)                          │  │ CI Gate Status:                                                 │ ║
+║ │ ● Classical.choice  ✓ found (expected)                          │  │ ✓ No forbidden axioms detected                                  │ ║
+║ │ ● sorryAx           ✗ NOT FOUND ✓                               │  │ ✓ All 1,600 theorems pass                                       │ ║
+║ │ ● native_decide     ✗ NOT FOUND ✓                               │  │ ✓ Mathlib cache hit on import                                   │ ║
+║ │                                                                 │  │ ✓ Build reproducible (2 runs)                                   │ ║
+║ └─────────────────────────────────────────────────────────────────┘  └─────────────────────────────────────────────────────────────────┘ ║
+║─── COST SAVINGS ── FAME-XGA vs GitHub Actions ───────────────────────────────────────────────────────────────────────────────────────────║
+║ ┌─ Monthly CI Cost Comparison ────────────────────────────── [5] ─┐  ┌─ Per-Run Cost Breakdown ────────────────────────────────────────┐ ║
+║ │ GitHub Actions (Standard Runners):                              │  │ Metric                 GHA   Cobuilds                           │ ║
+║ │ ████████████████████████████████ $2,400                         │  │ ─────────────────────────────────────                           │ ║
+║ │ GitHub Actions (Larger Runner 4-core):                          │  │ Runner cost          $0.80      $0.02                           │ ║
+║ │ ███████████████████████████████████████████████████ $3,800      │  │ Cache storage        $0.40      $0.01                           │ ║
+║ │ Cobuilds on Cloudflare (R2 + Workers):                          │  │ Cache transfer       $0.12      $0.00                           │ ║
+║ │ ██ $180                                                         │  │ Coordination           N/A     $0.003                           │ ║
+║ │                                                                 │  │ ─────────────────────────────────────                           │ ║
+║ │ Savings: $2,220/month (92.5%)                                   │  │ Total per run        $1.32     $0.033                           │ ║
+║ │ Annual:  $26,640/year   ROI: 13.3× cost reduction               │  │ Savings per run      ─────     $1.287                           │ ║
+║ │                                                                 │  │                                                                 │ ║
+║ │ Cost Drivers (Cobuilds):                                        │  │ This run so far: $0.033  (GHA equivalent $1.32)                 │ ║
+║ │ ├─ R2 storage: 424 GB × $0.015/GB       = $6.36                 │  │                                                                 │ ║
+║ │ ├─ R2 Class A: 1.2 M ops × $4.50/M      = $5.40                 │  │ Cost Assumptions:                                               │ ║
+║ │ ├─ R2 Class B: 8.4 M ops × $0.36/M      = $3.02                 │  │ ├─ GHA: $0.008/min × 100 min avg (Lean 4 + Mathlib import)      │ ║
+║ │ ├─ Workers:    420 M req × $0.30/M      = $126.00               │  │ ├─ R2 storage: $0.015/GB/month                                  │ ║
+║ │ ├─ DO:         24k hrs × $12.50/M       = $0.30                 │  │ ├─ R2 Class A: $4.50/M operations (writes)                      │ ║
+║ │ └─ Analytics:  (included)               = $0.00                 │  │ ├─ R2 Class B: $0.36/M operations (reads)                       │ ║
+║ │    itemised: $141.08 of $180 stated  *                          │  │ ├─ Workers: $0.30/M requests (cache proxy + coordinator)        │ ║
+║ │                                                                 │  │ └─ Zero egress on R2                                            │ ║
+║ │                                                                 │  │                                                                 │ ║
+║ │                                                                 │  │ Break-even: ~14 runs *                                          │ ║
+║ │                                                                 │  │ * stated in the brief, not derivable from its inputs: [n]otes   │ ║
+║ └─────────────────────────────────────────────────────────────────┘  └─────────────────────────────────────────────────────────────────┘ ║
+║─── EVENT STREAM ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────║
+║ ┌─ EVENT STREAM R2 Conditional Writes → Durable Object → SSE ──────────────────────────────────────────────────────────────────────────┐ ║
+║ │ 12:04:52 HB      agent-beta heartbeat (If-Match: etag "beta-002") ✓                                                                  │ ║
+║ │ 12:04:55 LEAN    agent-alpha: ✓ 0 forbidden axioms │ 0 sorryAx │ 0 native_decide                                                     │ ║
+║ │ 12:04:56 CACHE   agent-alpha: published manifest blake3:7a3f... (4 blobs, 424 MB)                                                    │ ║
+║ │ 12:04:56 LOCK    agent-alpha completed op:mathlib-import → SUCCEEDED                                                                 │ ║
+║ │ 12:05:01 HB      agent-alpha heartbeat MISSING (simulating crash)                                                                    │ ║
+║ │ 12:05:02 HB      agent-beta heartbeat (If-Match: etag "beta-003") ✓                                                                  │ ║
+║ │ 12:05:12 HB      agent-beta heartbeat (If-Match: etag "beta-004") ✓                                                                  │ ║
+║ │ 12:05:19 LOCK    agent-beta completed op:build-core → SUCCEEDED                                                                      │ ║
+║ │ 12:05:21 LEASE   agent-alpha lease EXPIRED (30s since last heartbeat)                                                                │ ║
+║ │ 12:05:21 LOCK    agent-gamma takeover op:axiom-audit (If-Match: etag "alpha-003")                                                    │ ║
+║ │ 12:05:22 CACHE   agent-gamma: cache HIT on v1/trusted/k/blake3:7a3f... (from alpha)                                                  │ ║
+║ │ 12:05:22 CACHE   agent-gamma: 4 blobs verified (streaming BLAKE3, 424 MB in 2.1s)                                                    │ ║
+║ │ 12:05:23 REVIEW  agent-gamma: PR fork/c1d5e4a3 → trunk awaiting review ([a]pprove / [r]eject)                                        │ ║
+║ │ 12:05:27 MERGE   agent-gamma: fork/c1d5e4a3 → trunk (fast-forward) ✓                                                                 │ ║
+║ │ 12:05:27 COST    run complete: $0.033 (vs $1.32 on GitHub Actions) │ saved $1.287                                                    │ ║
+║ └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘ ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║── CONTROLS ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────║
+║ [SPACE] trigger cobuild │ [1-5] panels │ [a]pprove PR │ [r]eject │ [w]atch git │ [n]otes │ [j/k] scroll │ [q]uit                         ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝

@@ -1,0 +1,32 @@
+{
+  "flushSalt": "1",
+  "toolchain": "node22",
+  "operations": [
+    {
+      "name": "codegen",
+      "command": "mkdir -p out/codegen && node -e \"require('fs').writeFileSync('out/codegen/version.json', JSON.stringify({v: 1}))\"",
+      "inputs": ["package.json"],
+      "outputs": ["out/codegen"]
+    },
+    {
+      "name": "build-core",
+      "deps": ["codegen"],
+      "command": "mkdir -p out/core && cp out/codegen/version.json out/core/ && echo core > out/core/core.txt",
+      "inputs": ["src/core"],
+      "outputs": ["out/core"]
+    },
+    {
+      "name": "build-ui",
+      "deps": ["codegen"],
+      "command": "mkdir -p out/ui && echo ui > out/ui/ui.txt",
+      "inputs": ["src/ui"],
+      "outputs": ["out/ui"]
+    },
+    {
+      "name": "test-suite",
+      "deps": ["build-core", "build-ui"],
+      "command": "mkdir -p out/test && cat out/core/core.txt out/ui/ui.txt > out/test/report.txt",
+      "outputs": ["out/test"]
+    }
+  ]
+}

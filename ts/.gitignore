@@ -1,0 +1,5 @@
+dist/
+# Dependencies are installed with `npm ci` (or restored from the R2 node_modules
+# cache, see src/nodeModules/), never committed.
+node_modules/
+.fix-logs/

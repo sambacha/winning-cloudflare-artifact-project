@@ -1,0 +1,11 @@
+{
+  "scope": "trusted",
+  "context": "demo-ctx",
+  "truncated": false,
+  "locks": [
+    { "key": "v1/trusted/cobuild/demo-ctx/blake3:aa/lock/", "cacheKey": "blake3:aa", "etag": "\"e7\"", "owner": "primary", "status": "building", "acquiredAt": 1000000, "heartbeatAt": 1010000, "expiresAt": 1040000, "leaseExpired": false, "buildCacheKey": null, "failedAt": null, "logKey": null },
+    { "key": "v1/trusted/cobuild/demo-ctx/blake3:bb/lock/", "cacheKey": "blake3:bb", "etag": "\"e9\"", "owner": "extra1", "status": "succeeded", "acquiredAt": 1000000, "heartbeatAt": 1012000, "expiresAt": 1012000, "leaseExpired": false, "buildCacheKey": "blake3:bb", "failedAt": null, "logKey": null },
+    { "key": "v1/trusted/cobuild/demo-ctx/blake3:cc/lock/", "cacheKey": "blake3:cc", "etag": "\"e12\"", "owner": "extra2", "status": "failed", "acquiredAt": 1000000, "heartbeatAt": 1015000, "expiresAt": 1015000, "leaseExpired": false, "buildCacheKey": null, "failedAt": 1015000, "logKey": null },
+    { "key": "v1/trusted/cobuild/demo-ctx/blake3:dd/lock/", "error": "body is not a cobuild lock manifest" }
+  ]
+}

@@ -1,0 +1,77 @@
+# Read-only cobuild state API (src/worker/index.ts).
+# Not deployed from this repository yet: `wrangler` is not installed here and
+# no Cloudflare account is configured. The [[workflows]], [[containers]],
+# [[durable_objects]] and [[queues]] sections below follow the documented
+# formats but are UNVERIFIED (never run through `wrangler deploy`).
+# Before deploying:
+#   1. set `bucket_name` to the bucket the lock and cache write to;
+#   2. `npx wrangler secret put API_TOKEN` (read token: locks, cache, artifacts views);
+#      optionally `npx wrangler secret put BISECT_API_TOKEN` (write token: /api/bisect);
+#   3. `npx wrangler deploy`;
+#   4. check `curl https://<worker>/healthz` answers {"status":"ok"}.
+name = "cobuilds-state"
+# The deployed module: API + review gate + Workflows + Sandbox (src/workers/edge.ts).
+# `src/worker/index.ts` alone is the read-only state API without those bindings.
+main = "src/workers/edge.ts"
+compatibility_date = "2026-10-01"
+# The lock manifest schema uses `effect`, which runs on Workers; nodejs_compat
+# is enabled in case a transitive import needs a Node built-in.
+compatibility_flags = ["nodejs_compat"]
+
+# Workers Logs: the handler writes one JSON line per request (route, status,
+# duration, role); never the token, the query string or error messages.
+[observability]
+enabled = true
+
+[vars]
+# Required: the Worker refuses every request when COBUILD_SCOPE is unset
+# (there is no default scope).
+COBUILD_SCOPE = "trusted"
+
+[[r2_buckets]]
+binding = "CACHE_BUCKET"
+bucket_name = "cobuilds-demo"
+
+# Cloudflare Artifacts binding (enables /api/bisect). Requires Wrangler
+# 4.145.0 or later for generated binding types (`npx wrangler types`).
+[[artifacts]]
+binding = "ARTIFACTS"
+namespace = "default" # replace with your Artifacts namespace
+
+# --- Sandbox SDK: one container-backed Durable Object per sandbox id -------
+# Every bisect predicate run and every note push runs in a fresh sandbox
+# (src/bisect/predicateStep.ts, src/bisect/notes.ts). Image: ./Dockerfile.
+[[containers]]
+class_name = "Sandbox"
+image = "./Dockerfile"
+max_instances = 10
+
+[[durable_objects.bindings]]
+name = "Sandbox"
+class_name = "Sandbox"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Sandbox"]
+
+# --- Workflows --------------------------------------------------------------
+# BisectWorkflow: started by POST /api/bisect/:id/drive or by CiWorkflow.
+[[workflows]]
+name = "bisect-workflow"
+binding = "BISECT_WORKFLOW"
+class_name = "BisectWorkflow"
+
+# CiWorkflow: one instance per pushed branch commit.
+[[workflows]]
+name = "ci-workflow"
+binding = "CI_WORKFLOW"
+class_name = "CiWorkflow"
+
+# --- cf.artifacts.repo.pushed ----------------------------------------------
+# UNVERIFIED: assumes push events are delivered to this queue through an
+# event subscription (`wrangler queues subscription create ... --events
+# cf.artifacts.repo.pushed` or the dashboard). The payload shape is
+# normalised by parsePushEvent (src/workflows/ciDriver.ts).
+[[queues.consumers]]
+queue = "artifacts-push-events"
+max_batch_size = 10

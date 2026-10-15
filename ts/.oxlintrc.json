@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "effect",
+            "message": "Import Effect from the facade (src/fx/index.js); see docs/effect-v4-refactor.md."
+          }
+        ],
+        "patterns": [
+          {
+            "group": ["effect/*"],
+            "message": "Import Effect from the facade (src/fx/index.js); see docs/effect-v4-refactor.md."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/fx/**"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ]
+}

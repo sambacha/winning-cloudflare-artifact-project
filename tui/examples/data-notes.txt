@@ -1,0 +1,60 @@
+╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║  ███████╗  █████╗  ███╗   ███╗ ███████╗        ██╗  ██╗  ██████╗   █████╗                                                                ║
+║  ██╔════╝ ██╔══██╗ ████╗ ████║ ██╔════╝        ╚██╗██╔╝ ██╔════╝  ██╔══██╗                                                               ║
+║  █████╗   ███████║ ██╔████╔██║ █████╗   █████╗  ╚███╔╝  ██║  ███╗ ███████║                                                               ║
+║  ██╔══╝   ██╔══██║ ██║╚██╔╝██║ ██╔══╝   ╚════╝  ██╔██╗  ██║   ██║ ██╔══██║                                                               ║
+║  ██║      ██║  ██║ ██║ ╚═╝ ██║ ███████╗        ██╔╝ ██╗ ╚██████╔╝ ██║  ██║                                                               ║
+║  ╚═╝      ╚═╝  ╚═╝ ╚═╝     ╚═╝ ╚══════╝        ╚═╝  ╚═╝  ╚═════╝  ╚═╝  ╚═╝                                                               ║
+║  FAME-XGA │ Lean 4 v4.28.0 │ Agent-Native CI on Cloudflare Edge                                                                          ║
+║  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  ║
+║  ◆ LIVE │ 47ms latency │ 3 agents │ 4/4 ops │ Mathlib@2026-10 │ 707,053 constants │ t+60s 12:05:31 │ ILLUSTRATIVE DATA                   ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ ┌─ DATA NOTES: brief figures, stated vs recomputed ────────────────────────────────────────────────────────────────────────────────────┐ ║
+║ │ Every figure is an illustrative input from the design brief; derived figures are recomputed here.                                    │ ║
+║ │ ✓ = the brief's figure follows from its inputs; ✗ = it does not (the panels show the recomputed value).                              │ ║
+║ │                                                                                                                                      │ ║
+║ │ ✓ monthly savings                         stated $2,220 (92.5%)         computed $2,220 (92.5%)                                      │ ║
+║ │ ✓ annual savings                          stated $26,640                computed $26,640                                             │ ║
+║ │ ✓ ROI                                     stated 13.3×                  computed 13.3×                                               │ ║
+║ │ ✓ per-run total                           stated $1.32 vs $0.033        computed $1.32 vs $0.033                                     │ ║
+║ │ ✓ savings per run                         stated $1.287                 computed $1.287                                              │ ║
+║ │ ✓ GHA runner cost per run                 stated $0.80                  computed $0.008/min × 100 min = $0.80                        │ ║
+║ │ ✗ cost drivers vs monthly Cloudflare cost stated $180/month             computed drivers sum to $141.08                              │ ║
+║ │ ✗ monthly GHA cost vs per-run cost        stated $2,400/month           computed = 1818 runs at $1.32; the narrative's 30 runs give  │ ║
+║ │ ✗ narrative per-run reduction             stated 96.3%                  computed 95.9% vs $0.80, 97.5% vs $1.32                      │ ║
+║ │ ✗ R2 storage quantity                     stated 424 GB (cost driver)   computed cache panel stores 424 MB                           │ ║
+║ │ ✗ break-even                              stated ~14 runs               computed no fixed cost is given, so there is nothing to brea │ ║
+║ │ ✗ SCC+bit total                           stated ~16 s                  computed 1600 × 0.01 ms = 16 ms                              │ ║
+║ │ ✗ Set B speedup                           stated 55.7×                  computed 55.6× (94.0 / 1.69)                                 │ ║
+║ │ ✗ Old traversal time                      stated 86.1% of 169.5 s       computed 145.9 s vs table total 150.4 s                      │ ║
+║ │ ✓ blob sizes vs stored bytes              stated 424 MB                 computed 424.4 MB                                            │ ║
+║ │ ✓ dedup ratio                             stated 3.2×                   computed 3.20×                                               │ ║
+║ │ ✓ space saved                             stated 933 MB (68.8%)         computed 933 MB (68.8%)                                      │ ║
+║ │ ✓ scaling at 8 cores                      stated 45.2 s                 computed Amdahl 45.2 s                                       │ ║
+║ │ ✓ scaling at 16 cores                     stated 32.1 s                 computed Amdahl 32.1 s                                       │ ║
+║ │ ✓ scaling at 32 cores                     stated 25.6 s                 computed Amdahl 25.6 s                                       │ ║
+║ └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘ ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+║                                                                                                                                          ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║── CONTROLS ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────║
+║ [SPACE] trigger cobuild │ [1-5] panels │ [a]pprove PR │ [r]eject │ [w]atch git │ [n]otes │ [j/k] scroll │ [q]uit                         ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝

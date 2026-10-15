@@ -1,0 +1,107 @@
+# Example: the Rush proposal's three-VM pipeline (primary / extra1 / extra2)
+# as a GitHub Actions workflow, cooperating through Cloudflare R2.
+#
+# Copy to .github/workflows/cobuild.yml in the repository being built, and
+# add these repository secrets / variables:
+#   Trusted (pushes to main only), in a GitHub environment "cobuild-trusted"
+#   restricted to the main branch:
+#     secrets.R2_ACCESS_KEY_ID, secrets.R2_SECRET_ACCESS_KEY  (R2 API token,
+#       Object Read & Write on vars.R2_BUCKET only)
+#   Pull requests (same repository; forks get no secrets at all):
+#     secrets.R2_PR_ACCESS_KEY_ID, secrets.R2_PR_SECRET_ACCESS_KEY  (R2 API
+#       token, Object Read & Write on vars.R2_PR_BUCKET only, a separate bucket)
+#   vars.R2_ACCOUNT_ID, vars.R2_BUCKET, vars.R2_PR_BUCKET
+#   secrets.CLOUDFLARE_API_TOKEN (Artifacts Edit; optional, only for --artifacts-repo)
+#   vars.CLOUDFLARE_ACCOUNT_ID, vars.ARTIFACTS_NAMESPACE (optional)
+#
+# Trust boundary: the `trusted` scope prefix is only a naming convention
+# inside a bucket, so it is enforced with credentials. Pull-request jobs
+# never receive a token that can write the trusted bucket: they cooperate
+# and cache in their own bucket (scope "pr"), and pushes to main use the
+# trusted bucket (scope "trusted"). The price is that PR builds do not
+# restore entries built on main.
+#
+# Every job runs the same plan (`cobuild.json`, see ../cobuild.json). The
+# context is the workflow run (id + attempt), so only the jobs of one run
+# cooperate through the locks; build-cache entries are shared across runs,
+# so unchanged operations are restored instead of rebuilt. Build commands
+# never see the R2_* / CLOUDFLARE_* variables (cobuild removes them).
+#
+# Not run from this repository (no GitHub runner or Cloudflare account here):
+# the same commands are exercised by ts/test/cli/e2e.test.ts against the
+# local directory store.
+name: cobuild
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+env:
+  # How the CLI is invoked: this package is private, so build it from a vendored
+  # copy (`npm run build` in ts/) or publish it to your registry and use npx.
+  COBUILD: node tools/cobuild/dist/cli/bin.js
+  RUSH_COBUILD_CONTEXT: ${{ github.run_id }}-${{ github.run_attempt }}
+  # Cobuilds are opt-in.
+  RUSH_COBUILD_ENABLED: "1"
+  COBUILD_STORE: r2
+  # Only pushes to main are trusted; every pull request (fork or not) is "pr".
+  COBUILD_SCOPE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'trusted' || 'pr' }}
+  R2_ACCOUNT_ID: ${{ vars.R2_ACCOUNT_ID }}
+  R2_BUCKET: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.R2_BUCKET || vars.R2_PR_BUCKET }}
+
+jobs:
+  cobuild:
+    strategy:
+      fail-fast: false
+      matrix:
+        job: [primary, extra1, extra2]
+    runs-on: ubuntu-latest
+    # Trusted credentials live in an environment that only main can use.
+    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'cobuild-trusted' || 'cobuild-pr' }}
+    # A hung job must not hold its locks for ever (they are renewed while it runs).
+    timeout-minutes: 60
+    env:
+      COBUILD_JOB_ID: ${{ matrix.job }}
+      R2_ACCESS_KEY_ID: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.R2_ACCESS_KEY_ID || secrets.R2_PR_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.R2_SECRET_ACCESS_KEY || secrets.R2_PR_SECRET_ACCESS_KEY }}
+      # `if:` cannot read secrets directly; expose whether the Artifacts token is configured.
+      HAS_ARTIFACTS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Dependency cache in R2 instead of actions/cache (same key idea: hash of the lockfile).
+      - name: Restore node_modules
+        id: deps
+        run: $COBUILD cache restore --name node-modules --path node_modules --hash-files package-lock.json
+
+      - name: Install
+        if: steps.deps.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Save node_modules
+        if: steps.deps.outputs.cache-hit != 'true' && matrix.job == 'primary'
+        run: $COBUILD cache save --name node-modules --path node_modules --hash-files package-lock.json
+
+      - name: Cooperative build
+        run: $COBUILD run --plan cobuild.json --events cobuild-events.jsonl --op-timeout-ms 1800000
+
+      # Only the primary job publishes artifacts (test results, coverage, …),
+      # as in the proposal. Optionally record the run in Cloudflare Artifacts.
+      - name: Record run in Cloudflare Artifacts
+        if: matrix.job == 'primary' && env.HAS_ARTIFACTS_TOKEN == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          ARTIFACTS_NAMESPACE: ${{ vars.ARTIFACTS_NAMESPACE }}
+        run: $COBUILD artifacts publish --repo cobuild-runs --file cobuild-events.jsonl --dest "runs/${RUSH_COBUILD_CONTEXT}/events.jsonl"
+
+      - uses: actions/upload-artifact@v4
+        if: matrix.job == 'primary'
+        with:
+          name: build-output
+          path: out/

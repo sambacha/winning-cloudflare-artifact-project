@@ -1,0 +1,22 @@
+{
+  "Rules": [
+    {
+      "ID": "node-modules-cache-30d",
+      "Status": "Enabled",
+      "Filter": { "Prefix": "nm-cache/v1/npm/" },
+      "Expiration": { "Days": 30 }
+    },
+    {
+      "ID": "node-modules-events-30d",
+      "Status": "Enabled",
+      "Filter": { "Prefix": "nm-cache/v1/events/" },
+      "Expiration": { "Days": 30 }
+    },
+    {
+      "ID": "build-cache-30d",
+      "Status": "Enabled",
+      "Filter": { "Prefix": "build-cache/v1/build/" },
+      "Expiration": { "Days": 30 }
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "$comment": "The ONLY file of the demo that contains raw numbers. Every figure the dashboard shows is computed from these values by src/derive.ts. All values are illustrative inputs taken or reconstructed from the design brief; none is measured. 'briefStated' holds figures the brief states as results: they are never displayed as facts, only compared with the derived values in the notes overlay.",
+  "project": {
+    "name": "FAME-XGA",
+    "lean": "Lean 4 v4.28.0",
+    "tagline": "Agent-Native CI on Cloudflare Edge",
+    "mathlib": "Mathlib@2026-10",
+    "mathlibConstants": 707053,
+    "theorems": 1600,
+    "latencyMs": 47,
+    "latencyJitterMs": 6
+  },
+  "algorithms": [
+    { "name": "Old", "perTheoremMs": 94.0 },
+    { "name": "Set A", "perTheoremMs": 8.56 },
+    { "name": "Set B", "perTheoremMs": 1.69 },
+    { "name": "SCC+bit", "perTheoremMs": 0.01 }
+  ],
+  "phases": [
+    { "variant": "Old", "importS": 22.2, "enumFilterS": 1.36 },
+    { "variant": "Set A", "importS": 19.8, "enumFilterS": 1.21 },
+    { "variant": "Set B", "importS": 18.5, "enumFilterS": 1.13 }
+  ],
+  "resources": { "peakMemMB": 180, "allocatedGB": 2.1, "cores": 1 },
+  "scaling": {
+    "theorems": 24000,
+    "oneCoreS": 227.7,
+    "serialS": 19.1,
+    "points": [
+      { "cores": 8, "totalS": 45.2 },
+      { "cores": 16, "totalS": 32.1 },
+      { "cores": 32, "totalS": 25.6 }
+    ]
+  },
+  "auditCache": { "coldVariant": "Set A", "warmS": 19.2, "warmHitRate": 0.95, "persistent": "<1 s + traversal" },
+  "graph": { "sccCount": 847, "maxScc": 1203, "maxDepth": 14, "edgesD5": "~3.5M", "cacheFileMB": 2.1 },
+  "axioms": [
+    { "name": "propext", "found": true, "allowed": true },
+    { "name": "Quot.sound", "found": true, "allowed": true },
+    { "name": "Classical.choice", "found": true, "allowed": true },
+    { "name": "sorryAx", "found": false, "allowed": false },
+    { "name": "native_decide", "found": false, "allowed": false }
+  ],
+  "cache": {
+    "hashPrefix": "blake3:",
+    "lookupKey": "v1/trusted/k/blake3:7a3f8b2c1d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+    "scope": "trusted",
+    "inputs": 847,
+    "deps": 12,
+    "salt": "FAME-XGA-v1",
+    "zstdLevel": 19,
+    "blobs": [
+      { "digest": "blake3:abc123def456", "sizeMB": 284.7, "shared": 3 },
+      { "digest": "blake3:789abcdef0123", "sizeMB": 91.2, "shared": 2 },
+      { "digest": "blake3:fedcba987654", "sizeMB": 45.1, "shared": 1 },
+      { "digest": "blake3:0123456789abc", "sizeMB": 3.4, "shared": 3 }
+    ],
+    "manifest": { "buildMs": 4200, "tool": "lean4.28", "mathlib": "oct26" },
+    "hitRate": 0.917,
+    "rawMB": 1357,
+    "chunks": 2847
+  },
+  "workload": { "runsPerMonth": 1800, "ghaMinutesPerRun": 100 },
+  "prices": {
+    "ghaStandardPerMin": 0.008,
+    "ghaLargerPerMin": 0.016,
+    "ghaCacheStoragePerRun": 0.4,
+    "ghaCacheTransferPerRun": 0.12,
+    "cobuildsRunnerPerRun": 0.02,
+    "r2EgressPerGB": 0
+  },
+  "drivers": [
+    { "id": "r2Storage", "name": "R2 storage", "qty": 424, "unit": "GB-month", "price": 0.015, "priceUnit": "GB-month", "group": "storage" },
+    { "id": "r2ClassA", "name": "R2 Class A", "qty": 1.2, "unit": "M ops", "price": 4.5, "priceUnit": "M ops", "group": "operations" },
+    { "id": "r2ClassB", "name": "R2 Class B", "qty": 8.4, "unit": "M ops", "price": 0.36, "priceUnit": "M ops", "group": "operations" },
+    { "id": "workers", "name": "Workers", "qty": 420, "unit": "M req", "price": 0.3, "priceUnit": "M req", "group": "coordination" },
+    { "id": "durableObjects", "name": "DO", "qty": 0.024, "unit": "M hrs", "price": 12.5, "priceUnit": "M hrs", "group": "coordination" }
+  ],
+  "run": {
+    "startClockS": 43471,
+    "leaseS": 30,
+    "renewS": 10,
+    "tokenTtlS": 60,
+    "minWriteGapS": 1,
+    "spawnS": 1,
+    "agents": [
+      {
+        "id": "agent-alpha",
+        "forks": [{ "fork": "a7f3b2c1", "branch": "task/axiom-audit", "at": 0, "commit": "perf: memoized Tarjan SCC", "added": 847, "removed": 203, "files": 12 }],
+        "set": "A (memoized Tarjan)"
+      },
+      {
+        "id": "agent-beta",
+        "forks": [{ "fork": "b9e4d3f2", "branch": "task/sc-audit", "at": 1, "commit": "feat: shared visited set", "added": 311, "removed": 58, "files": 5 }],
+        "set": "B (shared visited)"
+      },
+      {
+        "id": "agent-gamma",
+        "forks": [
+          { "fork": "c1d5e4a3", "branch": "task/lint-lean", "at": 2, "commit": "chore: fix #print axioms", "added": 23, "removed": 1, "files": 2 },
+          { "fork": "d4e8a1f7", "branch": "task/axiom-audit-takeover", "on": "takeover", "commit": "perf: memoized Tarjan SCC (from cache)", "added": 847, "removed": 203, "files": 12 }
+        ],
+        "set": "lint, then takeover"
+      }
+    ],
+    "ops": [
+      { "op": "op:mathlib-import", "holder": "agent-alpha", "acquireAt": 0, "workStart": 7, "doneAt": 25, "result": "manifest" },
+      { "op": "op:build-core", "holder": "agent-beta", "acquireAt": 1, "waitsFor": "op:mathlib-import", "doneAt": 48, "result": "build-core" },
+      { "op": "op:lint-lean", "holder": "agent-gamma", "acquireAt": 2, "doneAt": 12, "result": "lint" },
+      { "op": "op:axiom-audit", "holder": "agent-alpha", "acquireAt": 20, "workStart": 21, "workEnd": 24, "crashAt": 30, "takeoverBy": "agent-gamma", "takeoverWorkS": 1, "result": "audit" }
+    ],
+    "reviewAfterTakeoverS": 1,
+    "autoTriggerIdleS": 2,
+    "autoApproveDelayS": 4
+  },
+  "briefStated": {
+    "$comment": "Figures as the brief states them; shown only in the notes overlay next to the derived value.",
+    "monthlyGhaStandard": 2400,
+    "monthlyGhaLarger": 3800,
+    "monthlyCobuilds": 180,
+    "monthlySavingsPct": 92.5,
+    "roi": 13.3,
+    "perRunGha": 1.32,
+    "perRunCobuilds": 0.033,
+    "perRunCobuildsItems": { "cacheStorage": 0.01, "cacheTransfer": 0, "coordination": 0.003 },
+    "narrativeRunsPerMonth": 30,
+    "narrativeReductionPct": 96.3,
+    "breakEvenRuns": 14,
+    "sccBitTotalS": 16,
+    "setBSpeedup": 55.7,
+    "phaseTotalsS": [169.5, 32.8, 21.8],
+    "phaseShares": [
+      { "import": 13.1, "enumFilter": 0.8, "traversal": 86.1 },
+      { "import": 60.3, "enumFilter": 3.7, "traversal": 36.0 },
+      { "import": 84.8, "enumFilter": 5.2, "traversal": 10.0 }
+    ],
+    "storedMB": 424,
+    "zstdRatio": 3.2,
+    "spaceSavedMB": 933,
+    "spaceSavedPct": 68.8,
+    "alphaHeartbeatAt": 16,
+    "expiryLabelS": 30,
+    "takeoverEtag": "alpha-003",
+    "verifyS": 2.1
+  }
+}

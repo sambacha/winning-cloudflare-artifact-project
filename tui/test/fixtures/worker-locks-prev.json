@@ -1,0 +1,9 @@
+{
+  "scope": "trusted",
+  "context": "demo-ctx",
+  "truncated": false,
+  "locks": [
+    { "key": "v1/trusted/cobuild/demo-ctx/blake3:aa/lock/", "cacheKey": "blake3:aa", "etag": "\"e5\"", "owner": "extra2", "status": "building", "acquiredAt": 960000, "heartbeatAt": 970000, "expiresAt": 1000000, "leaseExpired": false, "buildCacheKey": null, "failedAt": null, "logKey": null },
+    { "key": "v1/trusted/cobuild/demo-ctx/blake3:bb/lock/", "cacheKey": "blake3:bb", "etag": "\"e8\"", "owner": "extra1", "status": "building", "acquiredAt": 1000000, "heartbeatAt": 1010000, "expiresAt": 1040000, "leaseExpired": false, "buildCacheKey": null, "failedAt": null, "logKey": null }
+  ]
+}

@@ -1,0 +1,21 @@
+ok        monthly savings: stated $2,220 (92.5%); computed $2,220 (92.5%)
+ok        annual savings: stated $26,640; computed $26,640
+ok        ROI: stated 13.3×; computed 13.3×
+ok        per-run total: stated $1.32 vs $0.033; computed $1.32 vs $0.033
+ok        savings per run: stated $1.287; computed $1.287
+ok        GHA runner cost per run: stated $0.80; computed $0.008/min × 100 min = $0.80
+MISMATCH  cost drivers vs monthly Cloudflare cost: stated $180/month; computed drivers sum to $141.08
+MISMATCH  monthly GHA cost vs per-run cost: stated $2,400/month; computed = 1818 runs at $1.32; the narrative's 30 runs give $24.00 (compute only)
+MISMATCH  narrative per-run reduction: stated 96.3%; computed 95.9% vs $0.80, 97.5% vs $1.32
+MISMATCH  R2 storage quantity: stated 424 GB (cost driver); computed cache panel stores 424 MB
+MISMATCH  break-even: stated ~14 runs; computed no fixed cost is given, so there is nothing to break even against
+MISMATCH  SCC+bit total: stated ~16 s; computed 1600 × 0.01 ms = 16 ms
+MISMATCH  Set B speedup: stated 55.7×; computed 55.6× (94.0 / 1.69)
+MISMATCH  Old traversal time: stated 86.1% of 169.5 s; computed 145.9 s vs table total 150.4 s
+ok        blob sizes vs stored bytes: stated 424 MB; computed 424.4 MB
+ok        dedup ratio: stated 3.2×; computed 3.20×
+ok        space saved: stated 933 MB (68.8%); computed 933 MB (68.8%)
+ok        scaling at 8 cores: stated 45.2 s; computed Amdahl 45.2 s
+ok        scaling at 16 cores: stated 32.1 s; computed Amdahl 32.1 s
+ok        scaling at 32 cores: stated 25.6 s; computed Amdahl 25.6 s
+8 of 20 figures do not follow from the brief's inputs.
